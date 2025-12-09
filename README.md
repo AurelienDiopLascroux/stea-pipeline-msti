@@ -1,4 +1,4 @@
-# STEA — Science, Technology & Energy Analysis
+# STEA (Science, Technology & Energy Analysis)
 ## Pipeline 1 : MSTI (Main Science & Technology Indicators)
 
 > **Production-grade multivariate analysis pipeline for OECD R&D indicators with GPU acceleration**
@@ -586,13 +586,13 @@ STEA/
     │        └── pipeline_metadata.json                 # Execution logs
     │
     ├── src/                                            # Code source complet du pipeline
-    │   ├── s01_ingestion/                              # Stage 1 — ingestion et préparation brute
+    │   ├── s01_ingestion/                              # Stage 1 : ingestion et préparation brute
     │   │   └── msti_ingestion_load_data.py
     │   │
-    │   ├── s02_indexing/                               # Stage 2 — indexing & structure
+    │   ├── s02_indexing/                               # Stage 2 : indexing & structure
     │   │   └── msti_indexing.py
     │   │
-    │   ├── s03_imputation/                             # Stage 3 — KNN GPU/CPU
+    │   ├── s03_imputation/                             # Stage 3 : KNN GPU/CPU
     │   │   └── msti_knn_imputer_gpu.py
     │   │
     │   ├── s04_visualization/                          # UMAP 3D GPU, projections
@@ -915,7 +915,7 @@ start_time = time.time()
 ---
 <a id="stage1-ingestion"></a>
 
-## 5.1 Stage 1 — Data Ingestion
+## 5.1 Stage 1 : Data Ingestion
 
 **Module :** `src/s01_ingestion/msti_ingestion_load_data.py`
 
@@ -985,7 +985,7 @@ print(f"  Dtypes: {raw_data.dtypes.value_counts().to_dict()}")
 ---
 <a id="stage2-indexing"></a>
 
-## 5.2 Stage 2 — Indexing & Standardization
+## 5.2 Stage 2 : Indexing & Standardization
 
 **Module :** `src/s02_indexing/msti_indexing.py`
 
@@ -1087,7 +1087,7 @@ Cette mise à l’échelle constitue une étape méthodologique essentielle pour
 ---
 <a id="stage3-imputation"></a>
 
-## 5.3 Stage 3 — GPU-Accelerated Imputation
+## 5.3 Stage 3 : GPU-Accelerated Imputation
 
 **Module :** `src/s03_imputation/msti_knn_imputer_gpu.py`
 
@@ -1358,7 +1358,7 @@ Cette étape garantit un dataset complet (2 067 × 89 = 184 203 valeurs) nécess
 ---
 <a id="stage4-umap"></a>
 
-## 5.4 Stage 4 — UMAP 3D Topological Projection
+## 5.4 Stage 4 : UMAP 3D Topological Projection
 **Module :** src/s04_visualization/msti_umap_projection.py
 <br>*Détail méthodologique : voir `documentation/methodology/protocole_statistique.docx`*
 
@@ -1528,7 +1528,7 @@ La projection UMAP conserve les relations locales dans l’espace $\mathbb{R}^{8
 ---
 <a id="stage5-univariate"></a>
 
-## Stage 5.5 — Univariate Analysis
+## Stage 5.5 : Univariate Analysis
 
 **Module**: `msti_analysis_univariate.py`
 
@@ -1926,7 +1926,7 @@ L'hétérogénéité marquée des dispersions entre blocs thématiques révèlen
 ---
 <a id="stage6-multivariate"></a>
 
-## 5.6 Stage 6 — Multivariate Analysis (CAH + MFA)
+## 5.6 Stage 6 : Multivariate Analysis (CAH + MFA)
 
 **Module :**  `msti_corr_analysis.py` +  `src/s05_analysis/msti_cah_mfa.py`
 <br>*Détail méthodologique : voir `documentation/methodology/mfa_pca.docx` et `documentation/methodology/protocole_statistique.docx`*
@@ -2033,7 +2033,7 @@ display(Image(corr_result['figures']['heatmap']))
     
 
 
-### **STAGE 6.1 — Analyse Corrélations Variables**<br>
+### **STAGE 6.1 : Analyse Corrélations Variables**<br>
 
 
 #### **Vue d’ensemble**
@@ -2593,7 +2593,7 @@ L'axe F3 (12,4% variance) reflète les **spécialisations sectorielles fortes** 
 | **Espagne** | 68,5% | 31,5% | Modèle intermédiaire |
 | **Australie** | 69,5% | 30,5% | Spécialisation minière dominante |
 
-**Cas critique — Chine** : 60,1% variance sur F3 confirme trajectoire R&D unique, non alignée sur axes principaux OCDE.
+**Cas critique : Chine** : 60,1% variance sur F3 confirme trajectoire R&D unique, non alignée sur axes principaux OCDE.
 
 
 ---
