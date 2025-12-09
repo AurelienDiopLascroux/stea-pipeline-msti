@@ -25,7 +25,7 @@
 - [3. Méthodologie](#methodologie)
   - [3.1 Cadre statistique](#cadre-statistique)
   - [3.2 Optimisations algorithmiques](#optimisations-algorithmiques)
-  - [3.2 Garanties de reproductibilité](#garanties-reproductibilite)
+  - [3.3 Garanties de reproductibilité](#garanties-reproductibilite)
 - [4. Configuration](#configuration)
   - [4.1 Spécifications système](#specifications-systeme)
   - [4.2 Installation](#installation)
