@@ -657,7 +657,7 @@ STEA/
     │   ├── s04_visualization/                          # Stage 4 : UMAP 3D GPU, projections
     │   │   └── msti_umap_projection.py
     │   │
-    │   ├── s05_analysis/                               # Stage 5 : Statistical & multivariate analyses
+    │   ├── s05_analysis/                               # Stage 5 & 6 : Statistical & multivariate analyses
     │   │   ├── msti_analysis_univariate.py
     │   │   ├── msti_corr_analysis.py
     │   │   └── msti_cah_mfa.py
