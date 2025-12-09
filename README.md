@@ -595,10 +595,10 @@ STEA/
     │   ├── s03_imputation/                             # Stage 3 : KNN GPU/CPU
     │   │   └── msti_knn_imputer_gpu.py
     │   │
-    │   ├── s04_visualization/                          # UMAP 3D GPU, projections
+    │   ├── s04_visualization/                          # Stage 4 : UMAP 3D GPU, projections
     │   │   └── msti_umap_projection.py
     │   │
-    │   ├── s05_analysis/                               # Analyses statistiques & multivariées
+    │   ├── s05_analysis/                               # Stage 5 & 6 : Analyses statistiques & multivariées
     │   │   ├── msti_analysis_univariate.py
     │   │   ├── msti_corr_analysis.py
     │   │   └── msti_cah_mfa.py
