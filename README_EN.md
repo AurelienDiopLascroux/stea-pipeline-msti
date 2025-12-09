@@ -1,4 +1,4 @@
-# STEA — Science, Technology & Energy Analysis
+# STEA (Science, Technology & Energy Analysis)
 ## Pipeline 1: MSTI (Main Science & Technology Indicators)
 
 > **Production-grade multivariate analysis pipeline for OECD R&D indicators with GPU acceleration**
@@ -288,8 +288,8 @@ where $\mu_j$ and $\sigma_j$ are the mean and standard deviation of variable $j$
 | **OS** | Linux / Windows / macOS | Ubuntu 22.04 LTS |
 | **Python** | 3.10–3.11 | 3.10.12 |
 | **RAM** | 16 GB | 32 GB (64 GB optimal) |
-| **GPU** | — | NVIDIA ≥ 8 GB VRAM (CC ≥ 7.0) |
-| **CUDA** | — | 12.0+ |
+| **GPU** |  | NVIDIA ≥ 8 GB VRAM (CC ≥ 7.0) |
+| **CUDA** |  | 12.0+ |
 | **Storage** | 5 GB | 20 GB SSD |
 
 **Tested GPUs:** RTX 4070 · 4090 · A100 · V100 (Volta, Turing, Ampere, Hopper architectures)  
@@ -521,8 +521,8 @@ src/config/
 | **OS** | Linux / Windows / macOS | Ubuntu 22.04 LTS (WSL2 for Windows) |
 | **Python** | 3.10–3.11 | 3.10.12 |
 | **RAM** | 16 GB min. | 32 GB min. (64 GB recommended) |
-| **GPU** | — | NVIDIA ≥ 8 GB VRAM (CC ≥ 7.0) |
-| **CUDA** | — | 12.0+ |
+| **GPU** |  | NVIDIA ≥ 8 GB VRAM (CC ≥ 7.0) |
+| **CUDA** |  | 12.0+ |
 | **Stage 3 Time** | ~15–20 min | ~1–2 min |
 
 **Tested GPUs:** RTX 4070 · 4090 · A100 · V100 (Volta, Turing, Ampere, Hopper architectures)  
@@ -645,19 +645,19 @@ STEA/
     │        └── pipeline_metadata.json                 # Execution logs
     │
     ├── src/                                            # Complete pipeline source code
-    │   ├── s01_ingestion/                              # Stage 1 — ingestion and raw preparation
+    │   ├── s01_ingestion/                              # Stage 1 : ingestion and raw preparation
     │   │   └── msti_ingestion_load_data.py
     │   │
-    │   ├── s02_indexing/                               # Stage 2 — indexing & structure
+    │   ├── s02_indexing/                               # Stage 2 : indexing & structure
     │   │   └── msti_indexing.py
     │   │
-    │   ├── s03_imputation/                             # Stage 3 — KNN GPU/CPU
+    │   ├── s03_imputation/                             # Stage 3 : KNN GPU/CPU
     │   │   └── msti_knn_imputer_gpu.py
     │   │
-    │   ├── s04_visualization/                          # Stage 4 — UMAP 3D GPU, projections
+    │   ├── s04_visualization/                          # Stage 4 : UMAP 3D GPU, projections
     │   │   └── msti_umap_projection.py
     │   │
-    │   ├── s05_analysis/                               # Stage 5 — Statistical & multivariate analyses
+    │   ├── s05_analysis/                               # Stage 5 : Statistical & multivariate analyses
     │   │   ├── msti_analysis_univariate.py
     │   │   ├── msti_corr_analysis.py
     │   │   └── msti_cah_mfa.py
