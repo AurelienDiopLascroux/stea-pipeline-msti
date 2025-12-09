@@ -1,0 +1,44 @@
+{
+  "stage1_time": 0.7922601699829102,
+  "raw_shape": [
+    203738,
+    36
+  ],
+  "stage2_time": 0.35108494758605957,
+  "indexed_shape": [
+    2067,
+    89
+  ],
+  "stage3_time": 24.637303829193115,
+  "imputation": {
+    "n_imputed": 67703,
+    "best_k": 4,
+    "best_rmse": 0.2233622540586248,
+    "observed_pct": 63.19749079978039
+  },
+  "stage4_time": 20.72139024734497,
+  "stage5_time": 16.547506093978882,
+  "cah": {
+    "n_clusters_elbow": 18,
+    "n_clusters_silhouette": 13,
+    "best_silhouette": 0.2105060987760324
+  },
+  "mfa": {
+    "eigenvalues": [
+      3.8825244170010276,
+      1.0370337975073245,
+      0.9959179064078902
+    ],
+    "explained_variance": [
+      48.53155521251284,
+      12.962922468841557,
+      12.448973830098629
+    ]
+  },
+  "stage6_time": 44.38484501838684,
+  "mfa_visualizations": 2,
+  "total_time_seconds": 107.66140127182007,
+  "execution_date": "2025-11-27 19:39:23",
+  "random_state": 42,
+  "spline_smoothing": 2.0
+}

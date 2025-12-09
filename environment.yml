@@ -1,0 +1,126 @@
+# ============================================================================================================
+# PROJECT      : STEA - Science, Technology & Energy Analysis
+# PIPELINE     : MSTI - Main Science and Technology Indicators
+# FILE         : environment.yml
+# PURPOSE      : Conda environment specification with GPU acceleration support
+# DESCRIPTION  :
+#   - GPU-accelerated configuration with RAPIDS ecosystem (cuDF, cuML, cuPy)
+#   - Exact version pinning for reproducibility
+#   - CUDA 12.0+ compatible for NVIDIA GPU acceleration
+#   - Primary installation method for production deployments
+# INSTALLATION :
+#   conda env create -f environment.yml
+#   conda activate rapids2508
+# ============================================================================================================
+
+name: rapids2508
+
+channels:
+  - rapidsai           # RAPIDS GPU libraries (cuDF, cuML, cuPy)
+  - conda-forge        # Community-maintained packages
+  - nvidia             # CUDA toolkit and GPU drivers
+  - defaults           # Anaconda default channel
+
+# ------------------------------------------------------------------------------------------------------------
+# Dependencies
+# ------------------------------------------------------------------------------------------------------------
+dependencies:
+  # --- Python interpreter ---
+  - python=3.12.12          # Stable CPython interpreter (3.10.x series)
+
+  # --- CUDA & GPU Runtime ---
+  - cuda-toolkit=12.0       # NVIDIA CUDA compiler and runtime
+  - libcurand=10.3          # CUDA random number generation
+
+  # --- RAPIDS GPU Ecosystem ---
+  - cudf=24.02              # GPU DataFrame library (pandas-like API)
+  - cuml=24.02              # GPU machine learning (scikit-learn-like API)
+  - cupy=13.0.0             # GPU array library (NumPy-like API)
+  - rmm=24.02               # RAPIDS Memory Manager (device memory pooling)
+
+  # --- Numerical Computing & Data Manipulation ---
+  - numpy=1.24.3            # N-dimensional arrays, linear algebra, FFT
+  - pandas=2.1.3            # DataFrames, time series, data wrangling
+  - scipy=1.11.4            # Optimization, integration, interpolation, signal processing
+
+  # --- Machine Learning & Dimensionality Reduction ---
+  - scikit-learn=1.3.2      # KNN, StandardScaler, hierarchical clustering, PCA
+  - umap-learn=0.5.5        # UMAP 3D projection, topological data analysis
+  - hdbscan=0.8.33          # Density-based clustering, noise detection
+
+  # --- Statistical Visualization ---
+  - matplotlib=3.8.2        # Core plotting, figures, axes, subplots
+  - seaborn=0.13.0          # Statistical graphics, heatmaps, distributions
+  - plotly=5.18.0           # Interactive 3D visualizations, web-based dashboards
+
+  # --- Data I/O & File Formats ---
+  - openpyxl=3.1.2          # Read/write .xlsx files (OOXML format)
+  - xlsxwriter=3.1.9        # Write .xlsx with advanced formatting, charts, formulas
+
+  # --- Progress Monitoring & System Utilities ---
+  - tqdm=4.66.1             # Progress bars for loops and iterables
+  - psutil=5.9.6            # CPU, RAM, disk, network monitoring
+
+  # --- Numerical Backend Dependencies ---
+  - numba=0.58.1            # JIT compiler for NumPy (used by UMAP, HDBSCAN)
+  - llvmlite=0.41.1         # LLVM binding for Numba
+  - pynndescent=0.5.11      # Nearest neighbor descent (used by UMAP)
+
+  # --- Jupyter Notebook Support ---
+  - jupyter=1.0.0           # Meta-package for Jupyter ecosystem
+  - jupyterlab=4.0.9        # Web-based IDE for notebooks
+  - ipykernel=6.26.0        # IPython kernel for Jupyter
+  - ipywidgets=8.1.1        # Interactive widgets for notebooks
+  - notebook=7.0.6          # Classic Jupyter Notebook interface
+
+  # --- Code Quality & Development Tools ---
+  - black=23.11.0           # Opinionated code formatter (PEP 8 compliant)
+  - flake8=6.1.0            # Linting for PEP 8, complexity, unused imports
+  - isort=5.12.0            # Import statement sorting
+  - mypy=1.7.1              # Static type checker for Python
+  - pytest=7.4.3            # Test framework with fixtures and plugins
+  - pytest-cov=4.1.0        # Code coverage reporting
+
+  # --- Additional Python packages (pip fallback) ---
+  - pip=23.3.1              # Python package installer
+  - pip:
+      - adjustText==1.2.0   # Automatic text label adjustment for matplotlib
+
+# ============================================================================================================
+# NOTES
+# ============================================================================================================
+# System Requirements:
+#   - NVIDIA GPU with CUDA Compute Capability 7.0+ (Volta, Turing, Ampere, Hopper)
+#   - CUDA 12.0+ drivers installed (nvidia-smi for verification)
+#   - 32 GB system RAM minimum (64 GB recommended)
+#   - 8 GB+ GPU VRAM (16 GB recommended for large datasets)
+#   - Ubuntu 22.04 LTS or compatible Linux distribution
+#
+# GPU Acceleration Benefits:
+#   - 10-15x speedup for Stage 3 (KNN imputation on 70M records)
+#   - 3-5x speedup for UMAP 3D projection (Stage 4)
+#   - Real-time interactive visualizations with GPU rendering
+#
+# Environment Activation:
+#   conda activate rapids2508
+#
+# Environment Verification:
+#   python -c "import cudf, cuml, cupy; print('GPU:', cupy.cuda.runtime.getDeviceCount())"
+#   python -c "import pandas, numpy, sklearn, umap, hdbscan; print('CPU libraries OK')"
+#
+# Troubleshooting:
+#   - CUDA version mismatch: conda install cuda-toolkit=12.0 -c nvidia
+#   - RAPIDS compatibility: Check https://rapids.ai/start.html for version matrix
+#   - GPU not detected: Verify nvidia-smi output and driver installation
+#   - Out of memory: Reduce batch size in pipelines/imputation/msti_knn_imputer_gpu.py
+#
+# Alternative Installation (CPU-only):
+#   - Use requirements.txt for environments without GPU
+#   - pip install -r requirements.txt
+#
+# Maintenance:
+#   - Review dependencies quarterly
+#   - Monitor CVE databases for security vulnerabilities
+#   - Test pipeline after updates: pytest tests/ -v
+#   - RAPIDS releases every 2 months - stay within LTS versions
+# ============================================================================================================

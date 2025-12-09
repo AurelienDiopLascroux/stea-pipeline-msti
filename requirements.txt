@@ -1,0 +1,132 @@
+# ============================================================================================================
+# PROJECT      : STEA - Science, Technology & Energy Analysis
+# PIPELINE     : MSTI - Main Science and Technology Indicators
+# FILE         : requirements.txt
+# PURPOSE      : Python package dependencies with exact versions (CPU-only fallback)
+# DESCRIPTION  :
+#   - CPU-only configuration without RAPIDS GPU libraries
+#   - Exact version pinning for reproducibility
+#   - Compatible with standard Python environments (venv, virtualenv)
+#   - Use this file if GPU/CUDA not available or Conda not preferred
+# INSTALLATION :
+#   python -m venv venv
+#   source venv/bin/activate  # Linux/Mac
+#   venv\Scripts\activate     # Windows
+#   pip install -r requirements.txt
+# ============================================================================================================
+
+# ------------------------------------------------------------------------------------------------------------
+# Numerical Computing & Data Manipulation
+# ------------------------------------------------------------------------------------------------------------
+# Core scientific computing libraries for arrays, dataframes, and statistical operations
+numpy==1.24.3              # N-dimensional arrays, linear algebra, FFT
+pandas==2.1.3              # DataFrames, time series, data wrangling
+scipy==1.11.4              # Optimization, integration, interpolation, signal processing
+
+# ------------------------------------------------------------------------------------------------------------
+# Machine Learning & Dimensionality Reduction
+# ------------------------------------------------------------------------------------------------------------
+# Algorithms for clustering, classification, and manifold learning
+scikit-learn==1.3.2        # KNN, StandardScaler, hierarchical clustering, PCA
+umap-learn==0.5.5          # UMAP 3D projection, topological data analysis
+hdbscan==0.8.33            # Density-based clustering, noise detection
+
+# ------------------------------------------------------------------------------------------------------------
+# Statistical Visualization
+# ------------------------------------------------------------------------------------------------------------
+# Publication-quality plots, interactive dashboards, and exploratory graphics
+matplotlib==3.8.2          # Core plotting, figures, axes, subplots
+seaborn==0.13.0            # Statistical graphics, heatmaps, distributions
+plotly==5.18.0             # Interactive 3D visualizations, web-based dashboards
+adjustText==1.2.0          # Automatic text label adjustment for matplotlib
+
+# ------------------------------------------------------------------------------------------------------------
+# Data I/O & File Formats
+# ------------------------------------------------------------------------------------------------------------
+# Excel spreadsheet handling for exports and imports
+openpyxl==3.1.2            # Read/write .xlsx files (OOXML format)
+xlsxwriter==3.1.9          # Write .xlsx with advanced formatting, charts, formulas
+
+# ------------------------------------------------------------------------------------------------------------
+# Progress Monitoring & System Utilities
+# ------------------------------------------------------------------------------------------------------------
+# User feedback and system diagnostics
+tqdm==4.66.1               # Progress bars for loops and iterables
+psutil==5.9.6              # CPU, RAM, disk, network monitoring
+
+# ------------------------------------------------------------------------------------------------------------
+# Numerical Backend Dependencies
+# ------------------------------------------------------------------------------------------------------------
+# Low-level libraries required by scientific packages
+pynndescent==0.5.11        # Nearest neighbor descent (used by UMAP)
+numba==0.58.1              # JIT compiler for NumPy (used by UMAP, HDBSCAN)
+llvmlite==0.41.1           # LLVM binding for Numba
+
+# ------------------------------------------------------------------------------------------------------------
+# Jupyter Notebook Support (Optional)
+# ------------------------------------------------------------------------------------------------------------
+# Interactive computing environment
+jupyter==1.0.0             # Meta-package for Jupyter ecosystem
+jupyterlab==4.0.9          # Web-based IDE for notebooks
+ipykernel==6.26.0          # IPython kernel for Jupyter
+ipywidgets==8.1.1          # Interactive widgets for notebooks
+notebook==7.0.6            # Classic Jupyter Notebook interface
+
+# ------------------------------------------------------------------------------------------------------------
+# Type Checking & Code Quality (Development)
+# ------------------------------------------------------------------------------------------------------------
+# Optional tools for development and debugging
+mypy==1.7.1                # Static type checker for Python
+types-psutil==5.9.5.16     # Type stubs for psutil
+
+# ------------------------------------------------------------------------------------------------------------
+# Testing Framework (Development)
+# ------------------------------------------------------------------------------------------------------------
+# Unit testing and integration testing
+pytest==7.4.3              # Test framework with fixtures and plugins
+pytest-cov==4.1.0          # Code coverage reporting
+
+# ------------------------------------------------------------------------------------------------------------
+# Code Formatting & Linting (Development)
+# ------------------------------------------------------------------------------------------------------------
+# Enforce consistent style and detect errors
+black==23.11.0             # Opinionated code formatter (PEP 8 compliant)
+flake8==6.1.0              # Linting for PEP 8, complexity, unused imports
+flake8-docstrings==1.7.0   # Docstring validation (PEP 257)
+isort==5.12.0              # Import statement sorting
+
+# ============================================================================================================
+# NOTES
+# ============================================================================================================
+# System Requirements:
+#   - Python 3.10, 3.11, or 3.12
+#   - 16 GB RAM minimum (32 GB recommended)
+#   - 4+ CPU cores for parallel operations
+#
+# GPU Acceleration:
+#   - This file does NOT include GPU libraries (RAPIDS, CuPy)
+#   - For GPU support, use environment.yml with Conda
+#   - GPU acceleration provides 10-15x speedup for Stage 3 (imputation)
+#
+# Version Pinning Policy:
+#   - Exact versions (==) ensure reproducibility across environments
+#   - No flexible versioning (~=, >=) to prevent dependency conflicts
+#   - Versions tested on Ubuntu 22.04 LTS, Python 3.10.12
+#
+# Installation Verification:
+#   python -c "import pandas, numpy, sklearn, umap, hdbscan; print('OK')"
+#
+# Troubleshooting:
+#   - If installation fails, upgrade pip: pip install --upgrade pip setuptools wheel
+#   - For M1/M2 Mac, some packages may require Rosetta 2 emulation
+#   - Windows users may need Microsoft Visual C++ 14.0+ for compilation
+#
+# Missing Dependencies:
+#   - prince (MFA): Not currently used in pipeline (relies on sklearn PCA)
+#   - If MFA via prince is required: pip install prince==0.13.0
+#
+# Maintenance:
+#   - Review dependencies quarterly
+#   - Monitor CVE databases for security vulnerabilities
+#   - Test pipeline after updates: pytest tests/ -v
+# ============================================================================================================

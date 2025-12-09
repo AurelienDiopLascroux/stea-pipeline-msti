@@ -1,0 +1,136 @@
+# =====================================================================
+# GPU & CPU MONITORING REPORT — MSTI KNN IMPUTATION
+# =====================================================================
+
+=== Resource Monitoring (Before Imputation) ===
+
+
+=== CPU ===
+Processor Name          : x86_64
+Physical Cores          : 4
+Logical Cores           : 8
+CPU Frequency           : 2496.00 MHz
+CPU Usage               : 10.6 %
+
+=== RAM ===
+Total RAM               : 16.60 GB
+Available RAM           : 13.80 GB
+RAM Usage               : 16.8 %
+
+=== GPU (NVIDIA) ===
+Mon Dec  8 14:27:04 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 590.44.01              Driver Version: 591.44         CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070        On  |   00000000:01:00.0  On |                  N/A |
+|  0%   36C    P0             32W /  200W |     862MiB /  12282MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+
+=== Memory Diagnostics ===
+RAM Usage : |█████-------------------------| 2.80/16.60 GB (16.9%)
+GPU Usage : |██----------------------------| 1.25/12.88 GB (9.7%) [Utilization: 2%]
+----------------------------------------------------------------------
+Empirical complexity ≈ N/A (benchmark skipped)
+
+metric=euclidean , k= 2 → RMSE=0.299846
+metric=euclidean , k= 3 → RMSE=0.263449
+metric=euclidean , k= 4 → RMSE=0.263903
+metric=euclidean , k= 5 → RMSE=0.264342
+metric=euclidean , k= 7 → RMSE=0.274750
+metric=euclidean , k=10 → RMSE=0.293585
+metric=euclidean , k=12 → RMSE=0.304984
+metric=euclidean , k=15 → RMSE=0.317973
+metric=euclidean , k=18 → RMSE=0.329433
+metric=euclidean , k=20 → RMSE=0.337511
+metric=euclidean , k=25 → RMSE=0.360072
+metric=euclidean , k=30 → RMSE=0.384213
+metric=euclidean , k=40 → RMSE=0.427778
+metric=euclidean , k=50 → RMSE=0.468715
+metric=manhattan , k= 2 → RMSE=0.241231
+metric=manhattan , k= 3 → RMSE=0.226659
+metric=manhattan , k= 4 → RMSE=0.223362
+metric=manhattan , k= 5 → RMSE=0.233120
+metric=manhattan , k= 7 → RMSE=0.246813
+metric=manhattan , k=10 → RMSE=0.264418
+metric=manhattan , k=12 → RMSE=0.277824
+metric=manhattan , k=15 → RMSE=0.295104
+metric=manhattan , k=18 → RMSE=0.311625
+metric=manhattan , k=20 → RMSE=0.320510
+metric=manhattan , k=25 → RMSE=0.343558
+metric=manhattan , k=30 → RMSE=0.367759
+metric=manhattan , k=40 → RMSE=0.413841
+metric=manhattan , k=50 → RMSE=0.454569
+metric=minkowski , k= 2 → RMSE=0.299849
+metric=minkowski , k= 3 → RMSE=0.263449
+metric=minkowski , k= 4 → RMSE=0.263903
+Global early stopping: 31/42 tests completed
+
+=== Final Imputation (metric=manhattan, k=4) ===
+KNN iteration 1/10 (10%)
+KNN iteration 6/10 (60%)
+KNN iteration 10/10 (100%)
+
+=== Resource Monitoring (After Imputation) ===
+
+
+=== CPU ===
+Processor Name          : x86_64
+Physical Cores          : 4
+Logical Cores           : 8
+CPU Frequency           : 2496.00 MHz
+CPU Usage               : 10.7 %
+
+=== RAM ===
+Total RAM               : 16.60 GB
+Available RAM           : 13.85 GB
+RAM Usage               : 16.6 %
+
+=== GPU (NVIDIA) ===
+Mon Dec  8 14:27:38 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 590.44.01              Driver Version: 591.44         CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070        On  |   00000000:01:00.0  On |                  N/A |
+|  0%   42C    P2             82W /  200W |    1087MiB /  12282MiB |     43%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A           12731      C   /python3.12                           N/A      |
++-----------------------------------------------------------------------------------------+
+
+
+=== Memory Diagnostics ===
+RAM Usage : |████--------------------------| 2.75/16.60 GB (16.6%)
+GPU Usage : |███---------------------------| 1.36/12.88 GB (10.5%) [Utilization: 14%]
+----------------------------------------------------------------------
+=== IMPUTATION SUMMARY ===
+Imputed values : 67,703
+Remaining NaN  : 0
+Best metric    : manhattan
+Best k         : 4
+Best RMSE      : 0.223362
+Empirical complexity : O(n^0.26)
+Total processing time: 33.33 seconds
