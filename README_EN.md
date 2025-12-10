@@ -13,7 +13,7 @@
 
 - [Overview](#overview)
   - [Description](#description)
-  - [Scientific Context](#scientific-context)
+  - [Context](#context)
   - [Data Structure](#data-structure)
   - [Indicator Taxonomy](#indicator-taxonomy)
   - [Statistical Coverage](#statistical-coverage)
@@ -73,7 +73,7 @@ The MSTI pipeline analyzes the evolution of national research and development sy
 
 ---
 
-### Scientific Context
+### Context
 
 **Motivation:** National science policies are traditionally evaluated through aggregate indicators (GERD/GDP, patents). This unidimensional approach masks distinct structural configurations between countries, particularly in sectoral investment allocation (business, higher education, public sector) and research thematic specialization.
 
