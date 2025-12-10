@@ -13,7 +13,7 @@
 
 - [1. Overview](#overview)
   - [1.1 Description](#description)
-  - [1.2 Contexte scientifique](#contexte)
+  - [1.2 Contexte](#contexte)
   - [1.3 Structure des données](#structure-donnees)
   - [1.4 Taxonomie des indicateurs](#taxonomie-indicateurs)
   - [1.5 Couverture statistique](#couverture-statistique)
@@ -31,12 +31,12 @@
   - [4.2 Installation](#installation)
   - [4.3 Structure du projet](#structure-projet)
 - [5. Exécution du Pipeline](#execution)
-  - [5.1 Stage 1: Data Ingestion](#stage1-ingestion)
-  - [5.2 Stage 2: Indexing & Standardization](#stage2-indexing)
-  - [5.3 Stage 3: GPU-Accelerated Imputation](#stage3-imputation)
-  - [5.4 Stage 4: UMAP 3D Topological Projection](#stage4-umap)
-  - [5.5 Stage 5: Univariate Analysis](#stage5-univariate)
-  - [5.6 Stage 6: Multivariate Analysis](#stage6-multivariate)
+  - [5.1 Stage 1 : Data Ingestion](#stage1-ingestion)
+  - [5.2 Stage 2 : Indexing & Standardization](#stage2-indexing)
+  - [5.3 Stage 3 : GPU-Accelerated Imputation](#stage3-imputation)
+  - [5.4 Stage 4 : UMAP 3D Topological Projection](#stage4-umap)
+  - [5.5 Stage 5 : Univariate Analysis](#stage5-univariate)
+  - [5.6 Stage 6 : Multivariate Analysis](#stage6-multivariate)
 - [6. Conclusion](#conclusion)
 - [7. Documentation & Références](#documentation-references)
 - [8. Contact](#contact)
@@ -77,7 +77,7 @@ Le pipeline MSTI analyse l'évolution des systèmes nationaux de recherche et d�
 
 <a id="contexte"></a>
 
-## 1.2 Contexte scientifique
+## 1.2 Contexte
 
 **Motivation :** Les politiques scientifiques sont souvent évaluées à partir d’indicateurs agrégés (GERD/GDP, brevets), une approche qui reste trop unidimensionnelle. <br>Elle ne permet pas de saisir les configurations structurelles propres à chaque pays, notamment la répartition sectorielle des investissements (entreprises, enseignement supérieur, secteur public) et les profils de spécialisation thématique.
 
